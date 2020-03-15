@@ -1,0 +1,53 @@
+package week09;
+
+/**
+ * A Selection sort implementation which is able to be observed through
+ * its Sorter superclass.
+ *
+ * @author Kezia Somerville-Petch
+ */
+public class SelectionSort extends Sorter{
+
+    /**
+     *  Create a new SelectionSort sorter with the given integers to sort.
+     *
+     * @param nums the integers to sort.
+     */
+    public SelectionSort(Integer[] nums) {
+        super(nums); // pass nums[] to the superclass Sort
+    }
+
+    /**
+     * Sort the integers (which are stored in the parent Sorter class).
+     */
+    public void sortNums(){
+        comparisons = 0;
+        for(i = 0; i < nums.length-1; i++){
+            for (j = 1; j < nums.length; j++){
+                if (++comparisons > 0 && nums[j] < nums[j-1]){
+                    swap(nums, i, minPosition(nums, i, j));
+                }
+                update();
+            }
+        }
+    }
+
+    public void swap(Integer[] nums, int i, int j){
+        int smallestNum = nums[i];
+        nums[i] = nums[j];
+        nums[j] = smallestNum;
+    }
+
+    public static int minPosition(Integer[] nums, int left, int right){
+        int pos = left;
+        int minValue = nums[left];
+        for (int i = left + 1; i < right; i++){
+            if (nums[i] < minValue){
+                pos = i;
+                minValue = nums[i];
+            }
+        }
+        return pos;
+    }
+}
+        

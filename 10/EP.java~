@@ -1,0 +1,89 @@
+package week10;
+
+import java.util.*;
+
+public class EP implements ExamPile{
+
+    Stack<Integer> stack = new Stack<Integer>();
+
+    public EP(){
+    }
+
+    public boolean isEmpty(){
+        return stack.isEmpty();
+    }
+
+    public void load(int[] items){
+        int[] reversedArray = new int[items.length];
+        int x = items.length;
+        for(int i = 0; i < items.length; i++){
+            reversedArray[x-1] = items[i];
+            x = x-1;
+        }
+        for(int i = 0; i < reversedArray.length; i++){
+            stack.push(reversedArray[i]);
+        }
+    }
+
+    public int size(){
+        return stack.size();
+    }
+
+    public int peek(){
+        if(isEmpty()){
+            System.out.println(new EmptyPileException("Peek on an empty pile"));
+            return -1;
+        }
+        return stack.peek();
+    }
+
+    public int mark(){
+        if(isEmpty()){
+            System.out.println(new EmptyPileException("Mark on an empty pile"));
+            return -1;
+        }
+        else{
+        }
+        return stack.pop();    
+    }
+
+    public void delay(){
+        if(isEmpty()){
+            System.out.println(new EmptyPileException("Delay on an empty pile"));
+            return;
+        }
+        Stack<Integer> newStack = new Stack<Integer>();
+        int item = stack.pop();
+
+        newStack.push(item);
+
+        newStack.addAll(stack);
+        stack = newStack;
+    }
+
+    public static EP reconstruct(String steps){
+        return null;
+    }
+
+    public String sortingSteps(){
+        return " ";
+    }
+
+    public boolean equals(){
+        return true;
+    }
+
+    public String toString(){
+        String result = "";
+        Object[] list = stack.toArray();
+        for(int i = list.length-1; i >= 0; i--) {
+            if(i == 0) {
+                result += list[i];
+            } else {
+                result += list[i] + " ";
+            }
+        }
+        return result; 
+    }
+}
+  

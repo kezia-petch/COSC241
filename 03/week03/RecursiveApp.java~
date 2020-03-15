@@ -1,0 +1,31 @@
+package week03;
+/**Week 3 Assessment - Part One.
+ *This class focuses around counting the digits of specific long
+ *integers and adding digits together.
+ */
+
+public class RecursiveApp{
+    public static void main(String[] args){
+        System.out.println(sumOfDigits(257));
+    }
+                                          
+    public static long digits(long n){
+        System.out.println("Recursion "+ n);
+        if (n < 10){
+            return 1;
+        }
+        return 1 + digits(n/10);
+    }
+
+    public static long sumOfDigits(long n){
+        long storedNum = n % 10;
+        System.out.println(storedNum);
+        long sum = storedNum;
+        System.out.println(sum);
+        long addedSum = sum += storedNum;
+        if (n < 10){
+            return addedSum;
+        }
+        return 1 + sumOfDigits(n/10); 
+    }
+}

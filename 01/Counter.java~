@@ -1,0 +1,25 @@
+package week01;
+import java.util.Scanner;
+/*Class Counter */
+public class Counter{
+/*Main method of Counter
+  Takes an input from the user, scans this input and determines the amount of
+  lines and words within the input */
+    public static void main (String []args){
+        int lines = 0;
+        int words = 0;
+        Scanner sc = new Scanner (System.in);
+        while(sc.hasNextLine()){
+            String lineInput = sc.nextLine();
+            Scanner wordScanner = new Scanner(lineInput);
+            lines += 1;
+            while(wordScanner.hasNext()){
+                String word = wordScanner.next();
+                words += 1;
+            }
+        }
+        System.out.println("lines: " + lines);
+        System.out.println("words: " + words);
+    }
+}
+        

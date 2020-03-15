@@ -1,0 +1,56 @@
+package week02;
+
+public class Coins{
+
+    public static final boolean HEADS = true;
+    public static final boolean TAILS = false;
+    String coinSeries = " ";
+
+    private boolean[] coins;
+
+    public static void main (String[] args){
+        boolean [] b = {HEADS, TAILS, HEADS, HEADS, TAILS};
+        Coins c = new Coins(b);
+        System.out.println(c.countHeads());
+     }
+
+    public Coins(boolean[] coins) {
+        this.coins = coins;
+    }
+
+    public Coins (String c){
+        Coins c1 = new Coins(c);
+        
+    }
+
+    public Coins (int length){
+        Coins c2 = new Coins(length);
+    }
+
+    public int countRuns(){
+        while count1 < l
+    }
+
+    public int countHeads(){
+        int heads = 0;
+        int tails = 0;
+        int count = 0;
+        while (count < coins.length){
+        if (coins[count] == HEADS){
+            heads++;
+            coinSeries += "H ";
+        }
+        else {
+            tails++;
+            coinSeries += "T ";
+        }
+        count++;
+    }
+        return heads;
+    }
+
+    public String toString(){
+        return coinSeries;
+    }
+
+}
