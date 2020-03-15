@@ -1,0 +1,63 @@
+public class Wordlist {
+
+    private String first;
+    private Wordlist rest;
+
+    public Wordlist();
+
+    private Wordlist (String word, Wordlist rest){
+        this.first = word;
+        this.rest = rest;
+    }
+    
+
+    public Wordlist add(String word){
+        return new Wordlist(word, this);
+    }
+
+    public boolean contains(String word){
+        if (first.equals(word)){
+            return true;
+        }
+        else{
+            for(String checkedWord : rest){
+                if (checkedWord.equals(word)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+                        
+
+    public boolean isEmpty(){
+        return first == "";
+    }
+
+    public int size(){
+        if (isEmpty()){
+            return 0;
+        }
+        else{
+            return 1 + rest.size();
+        }
+    }
+    
+
+    public String toString(){
+        if (isEmpty()){
+            return "";
+        }
+        else{
+            String fullString;
+            fullString += first + " ";
+            for(String checkedWord : rest){
+                fullString += checkedWord + " ";
+            }
+        }
+        return fullString;
+    }
+}
+
+            
+  
